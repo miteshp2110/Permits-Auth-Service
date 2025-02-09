@@ -1,22 +1,17 @@
-const {MongoClient} = require('mongodb')
+const mongoose = require('mongoose')
 const {MONGO_URI} = require('./secrets')
 
-var connection;
 
-async function getConnection(){
+async function connectDB(){
     try{
 
-        if(connection){
-            return connection
-        }
-        connection = await (new MongoClient(MONGO_URI)).connect()
-        console.log("Connected to MongoDb")
-        return connection
+        await mongoose.connect(MONGO_URI)
+        console.log("Connected to Mongoose")
     }
     catch(exception){
         console.error(exception)
-        
+        process.exit(1)
     }
 }
 
-module.exports = {getConnection}
+module.exports = {connectDB}

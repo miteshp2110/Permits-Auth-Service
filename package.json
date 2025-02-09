@@ -1,0 +1,30 @@
+{
+  "name": "permits-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miteshp2110/Permits-Backend.git"
+  },
+  "author": "miteshp2110",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miteshp2110/Permits-Backend/issues"
+  },
+  "homepage": "https://github.com/miteshp2110/Permits-Backend#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0",
+    "xceptions": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

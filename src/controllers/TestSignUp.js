@@ -6,6 +6,7 @@ const TestSignUp = (async(req,res,next)=>{
         const newUser = new User({
             id:1,
             email:"paliwalmitesh2110@gmail.com",
+            password:"Mi12te34@",
             name:"Mitesh Paliwal",
             department:"CSE",
             role:"Admin"

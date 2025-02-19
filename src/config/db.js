@@ -1,12 +1,28 @@
-const mongoose = require('mongoose')
-const {MONGO_URI} = require('./secrets')
+const mysql = require('mysql2/promise')
+const {MYSQL_HOST,MYSQL_PORT,MYSQL_USER,MYSQL_PASSWORD,MYSQL_LIMIT,MYSQL_DATABASE} = require('./secrets')
 
+var pool=  mysql.createPool({
+    host:MYSQL_HOST,
+    port:MYSQL_PORT,
+    user:MYSQL_USER,
+    password:MYSQL_PASSWORD,
+    database:MYSQL_DATABASE,
+    connectionLimit:MYSQL_LIMIT
+});
 
-async function connectDB(){
+let isConnected = false
+
+async function getPool(){
     try{
 
-        await mongoose.connect(MONGO_URI)
-        console.log("Connected to Mongoose")
+        const connection = await pool.getConnection()
+
+        if(!isConnected){
+            console.log("Connected to DB")
+            isConnected = true
+        }
+
+        return connection
     }
     catch(exception){
         console.error(exception)
@@ -14,4 +30,12 @@ async function connectDB(){
     }
 }
 
-module.exports = {connectDB}
+
+const testConnection = (async()=>{
+    const connection = await getPool();
+    if(connection){
+        connection.release()
+    }
+})
+
+module.exports = {getPool,testConnection}

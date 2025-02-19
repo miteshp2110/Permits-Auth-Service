@@ -1,11 +1,11 @@
 const express = require("express")
 const app = express()
 const {XCEPTIONS_KEY} = require("./config/secrets")
-const {connectDB} = require('./config/db')
+const {testConnection} = require('./config/db')
 const {Client} = require("xceptions")
 
 
-connectDB()
+testConnection()
 app.use(express.json())
 
 

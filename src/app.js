@@ -3,9 +3,11 @@ const app = express()
 const {XCEPTIONS_KEY} = require("./config/secrets")
 const {testConnection} = require('./config/db')
 const {Client} = require("xceptions")
-
+const status = require('express-status-monitor')
 
 testConnection()
+
+app.use(status())
 app.use(express.json())
 
 

@@ -9,5 +9,7 @@ module.exports={
     MYSQL_USER : process.env.MYSQL_USER,
     MYSQL_PASSWORD : process.env.MYSQL_PASSWORD,
     MYSQL_LIMIT : process.env.MYSQL_LIMIT,
-    MYSQL_DATABASE : process.env.MYSQL_DATABASE
+    MYSQL_DATABASE : process.env.MYSQL_DATABASE,
+    BCRYPT_SALT_ROUNDS : process.env.BCRYPT_SALT_ROUNDS,
+    JWT_SECRET : process.env.JWT_SECRET
 }

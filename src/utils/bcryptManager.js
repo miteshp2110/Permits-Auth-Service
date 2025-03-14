@@ -9,8 +9,6 @@ async function getHashedPassword(rawPassword) {
     }
     catch(err){
         console.log(err)
-    }
-    finally{
         return null
     }
 }
@@ -23,9 +21,7 @@ async function checkPassword(rawPassword,hashedPassword) {
     catch(err){
         console.log(err)
     }
-    finally{
-        return false
-    }
 }
+
 
 module.exports = {getHashedPassword,checkPassword}

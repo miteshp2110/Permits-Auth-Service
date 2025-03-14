@@ -38,4 +38,4 @@ const testConnection = (async()=>{
     }
 })
 
-module.exports = {getPool,testConnection}
+module.exports = {pool,testConnection}

@@ -11,5 +11,9 @@ module.exports={
     MYSQL_LIMIT : process.env.MYSQL_LIMIT,
     MYSQL_DATABASE : process.env.MYSQL_DATABASE,
     BCRYPT_SALT_ROUNDS : process.env.BCRYPT_SALT_ROUNDS,
-    JWT_SECRET : process.env.JWT_SECRET
+    JWT_SECRET : process.env.JWT_SECRET,
+    REDIS_HOST : process.env.REDIS_HOST,
+    REDIS_PORT : process.env.REDIS_PORT,
+    REDIS_USER : process.env.REDIS_USER,
+    REDIS_PASSWORD : process.env.REDIS_PASSWORD
 }

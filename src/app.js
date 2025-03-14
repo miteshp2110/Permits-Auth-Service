@@ -4,15 +4,20 @@ const {XCEPTIONS_KEY} = require("./config/secrets")
 const {testConnection} = require('./config/db')
 const {Client} = require("xceptions")
 const status = require('express-status-monitor')
+const jsonBodyValidator = require("./middlewares/jsonBodyValidator")
+const redis = require("./config/redisClient")
 
 testConnection()
 
 app.use(status())
+app.use(jsonBodyValidator)
 app.use(express.json())
 
+redis.set("greetings","Hello")
+redis.expire("greetings",30)
 
 
-app.use("/auth",require('./routes/authRoutes'))
+app.use("/auth",require('./routes/auth-routes/auth'))
 
 
 const xceptionClient = new Client(XCEPTIONS_KEY);
